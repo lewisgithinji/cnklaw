@@ -65,7 +65,7 @@ To deploy this project to Cloudflare Pages, use the following settings in the Cl
 ### Build Configuration
 - **Framework Preset**: `Next.js`
 - **Build Command**: `npx @cloudflare/next-on-pages@latest`
-- **Build Output Directory**: `.vercel_build_output`
+- **Build Output Directory**: `.vercel/output`
 - **Root Directory**: `/`
 
 ### Environment Variables
