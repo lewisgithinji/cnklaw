@@ -41,8 +41,23 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     console.error("Contact form error:", error);
+
+    if (error instanceof Error && error.message.includes("ZodError")) {
+      return NextResponse.json(
+        { success: false, message: "Invalid form data" },
+        { status: 400 }
+      );
+    }
+
+    if (error instanceof Error && error.message.includes("WEB3FORMS_ACCESS_KEY")) {
+      return NextResponse.json(
+        { success: false, message: "Server configuration error (Secret Key Missing)" },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
-      { success: false, message: "Failed to send message" },
+      { success: false, message: "An unexpected error occurred. Please try again later." },
       { status: 500 }
     );
   }
