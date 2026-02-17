@@ -58,6 +58,25 @@ Ensure your `.env.local` includes the following:
 - `src/lib/constants.ts`: The "Brand Soul" containing all firm information and site metadata.
 - `public/Hero`: Optimized cinematic visual assets.
 
+## 🌐 Deployment (Cloudflare Pages)
+
+To deploy this project to Cloudflare Pages, use the following settings in the Cloudflare Dashboard:
+
+### Build Configuration
+- **Framework Preset**: `Next.js`
+- **Build Command**: `npx @cloudflare/next-on-pages@latest`
+- **Build Output Directory**: `.vercel_build_output`
+- **Root Directory**: `/`
+
+### Environment Variables
+Ensure the following variables are set in the **Production** and **Preview** environments:
+- `NODE_VERSION`: `20` (or higher)
+- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`: [Your Google Maps API Key]
+- `WEB3FORMS_ACCESS_KEY`: [Your Web3Forms Key]
+
+### Required Configuration
+This project uses the `@cloudflare/next-on-pages` adapter for Edge Runtime support. Ensure your `next.config.ts` does not contain incompatible Node.js built-ins in the edge functions.
+
 ---
 
 ### 🖋️ Site Architecture
