@@ -7,6 +7,8 @@ import { PRACTICE_AREAS, ATTORNEYS, FIRM_INFO } from "@/lib/constants";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { FiArrowRight, FiCheckCircle } from "react-icons/fi";
 
+export const runtime = "edge";
+
 interface PracticeAreaPageProps {
   params: { slug: string };
 }

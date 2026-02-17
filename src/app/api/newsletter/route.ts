@@ -10,6 +10,10 @@ export async function POST(request: Request) {
     // Validate request body
     const validatedData = newsletterSchema.parse(body);
 
+    if (!process.env.WEB3FORMS_ACCESS_KEY) {
+      throw new Error("Missing WEB3FORMS_ACCESS_KEY environment variable");
+    }
+
     // Send to Web3Forms (Edge Compatible)
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",

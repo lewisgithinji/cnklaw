@@ -15,8 +15,11 @@ export async function generateStaticParams() {
     }));
 }
 
+export const runtime = "edge";
+
 export async function generateMetadata({ params }: AttorneyPageProps): Promise<Metadata> {
-    const attorney = ATTORNEYS.find((a) => a.slug === params.slug);
+    const { slug } = await params;
+    const attorney = ATTORNEYS.find((a) => a.slug === slug);
 
     if (!attorney) {
         return { title: "Attorney Not Found" };
@@ -28,8 +31,9 @@ export async function generateMetadata({ params }: AttorneyPageProps): Promise<M
     };
 }
 
-export default function AttorneyProfilePage({ params }: AttorneyPageProps) {
-    const attorney = ATTORNEYS.find((a) => a.slug === params.slug);
+export default async function AttorneyProfilePage({ params }: AttorneyPageProps) {
+    const { slug } = await params;
+    const attorney = ATTORNEYS.find((a) => a.slug === slug);
 
     if (!attorney) {
         notFound();
