@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+
+export const runtime = "edge";
 import { newsletterSchema } from "@/lib/validations";
 import { createEmailTransport } from "@/lib/email";
 

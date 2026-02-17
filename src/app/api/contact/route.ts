@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+
+export const runtime = "edge";
 import { contactFormSchema } from "@/lib/validations";
 import { createEmailTransport } from "@/lib/email";
 

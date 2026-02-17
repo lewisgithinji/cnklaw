@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+
+export const runtime = "edge";
 import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";

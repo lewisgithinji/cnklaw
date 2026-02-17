@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+
+export const runtime = "edge";
 import { appointmentFormSchema } from "@/lib/validations";
 import { createEmailTransport } from "@/lib/email";
 import { formatDate } from "@/lib/utils";
