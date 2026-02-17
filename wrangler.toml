@@ -2,7 +2,7 @@
 name = "cnk-law-website"
 compatibility_date = "2024-11-18"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".vercel/output"
+pages_build_output_dir = ".vercel/output/static"
 
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://cnklaw.co.ke"
