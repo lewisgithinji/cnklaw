@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CNK Law Firm Website
+
+A modern, high-performance law firm website built with Next.js 15, TypeScript, Tailwind CSS, and Shadcn UI.
+
+## Features
+
+- ✅ Modern, responsive design
+- ✅ Fast loading with optimized performance
+- ✅ SEO-friendly with structured data
+- ✅ Contact and appointment booking forms
+- ✅ Newsletter subscription
+- ✅ Blog system with MDX support
+- ✅ Google Maps integration
+- ✅ Mobile-responsive navigation
+- ✅ Accessible UI components (Shadcn UI)
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: Shadcn UI
+- **Form Handling**: React Hook Form + Zod
+- **Email**: Nodemailer
+- **Maps**: Google Maps via @next/third-parties
+- **Blog**: MDX with gray-matter
 
 ## Getting Started
 
-First, run the development server:
+### Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and fill in:
+- Google Maps API key
+- Email SMTP configuration
+- Newsletter service credentials (optional)
 
-## Learn More
+### Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Status
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ✅ Completed
+- Next.js 15 + TypeScript setup
+- Tailwind CSS v4 + Shadcn UI
+- Header & Footer components
+- Homepage with Hero & Practice Areas
+- Form validation with Zod
+- Newsletter signup form
+- Environment configuration
 
-## Deploy on Vercel
+### 🚧 To Complete
+- Remaining pages (About, Contact, Blog, etc.)
+- Form components (Contact, Appointment)
+- API routes for form submissions
+- Google Maps integration
+- Blog MDX posts
+- SEO metadata
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Next Steps
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Provide company profile to populate:
+   - Practice areas
+   - Attorney profiles
+   - Contact information
+   - Office location (for Google Maps)
+
+2. Complete remaining pages and forms
+3. Add content and test functionality
+
+## Configuration
+
+Edit `src/lib/constants.ts` to update firm information, practice areas, and attorney profiles.
+
+## Documentation
+
+- [Next.js Docs](https://nextjs.org/docs)
+- [Shadcn UI](https://ui.shadcn.com)
+- [Tailwind CSS](https://tailwindcss.com/docs)
