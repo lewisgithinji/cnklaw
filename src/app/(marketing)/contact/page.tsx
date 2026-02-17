@@ -126,7 +126,7 @@ export default function ContactPage() {
             <OfficeMap />
             <div className="absolute bottom-6 left-6 z-10 bg-white/90 backdrop-blur-md p-6 border border-gray-200 shadow-xl max-w-xs">
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Location Strategy</p>
-              <p className="text-gray-600 text-sm italic">"Next to Sarit Centre, Westlands. Optimized for client accessibility and prestige."</p>
+              <p className="text-gray-600 text-sm italic">&quot;Next to Sarit Centre, Westlands. Optimized for client accessibility and prestige.&quot;</p>
             </div>
           </div>
         </div>

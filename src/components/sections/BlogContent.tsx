@@ -75,7 +75,7 @@ export function BlogContent({ posts }: { posts: Post[] }) {
                                         {post.title}
                                     </h2>
                                     <p className="text-gray-600 line-clamp-3 mb-8 text-base leading-relaxed italic border-l-2 border-gray-100 pl-6 flex-1">
-                                        "{post.excerpt}"
+                                        &quot;{post.excerpt}&quot;
                                     </p>
                                     <div className="flex items-center text-primary font-bold text-xs uppercase tracking-[0.2em] group/btn mt-auto">
                                         <span className="border-b border-primary/0 group-hover/btn:border-primary/100 transition-all pb-1">

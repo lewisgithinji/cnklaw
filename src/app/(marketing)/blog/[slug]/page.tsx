@@ -5,12 +5,12 @@ import { notFound } from "next/navigation";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog";
 import { BlogContent } from "@/components/blog/BlogContent";
 import { formatDate } from "@/lib/utils";
-import { FiClock, FiUser, FiTag, FiArrowLeft } from "react-icons/fi";
+import { FiClock, FiUser, FiArrowLeft } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import { marked } from "marked";
 
 interface BlogPostPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                           <img src={related.image} alt={related.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                         </div>
                         <h4 className="text-xl font-serif font-bold italic group-hover:text-primary transition-colors mb-4 leading-tight">{related.title}</h4>
-                        <p className="text-gray-500 text-sm line-clamp-2 italic">"{related.excerpt}"</p>
+                        <p className="text-gray-500 text-sm line-clamp-2 italic">&quot;{related.excerpt}&quot;</p>
                       </Link>
                     ))}
                   </div>

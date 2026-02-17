@@ -48,7 +48,7 @@ export function CouncilContent() {
                 <CardContent className="p-8 flex-1 flex flex-col">
                     <div className="text-primary font-bold text-xs uppercase tracking-widest mb-4">{member.title}</div>
                     <p className="text-gray-600 text-sm leading-relaxed italic mb-8 flex-1">
-                        "{member.bio.slice(0, 160)}..."
+                        &quot;{member.bio.slice(0, 160)}...&quot;
                     </p>
 
                     <div className="space-y-4 pt-6 border-t border-gray-50">

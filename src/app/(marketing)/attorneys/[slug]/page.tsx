@@ -6,7 +6,7 @@ import { FiMail, FiPhone, FiLinkedin, FiArrowLeft, FiAward, FiBook } from "react
 import { Button } from "@/components/ui/button";
 
 interface AttorneyPageProps {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {

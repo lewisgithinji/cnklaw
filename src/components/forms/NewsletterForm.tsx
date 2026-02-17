@@ -42,7 +42,7 @@ export function NewsletterForm() {
 
       setMessage({ type: "success", text: "Successfully subscribed to newsletter!" });
       reset();
-    } catch (error) {
+    } catch {
       setMessage({ type: "error", text: "Failed to subscribe. Please try again." });
     } finally {
       setIsLoading(false);

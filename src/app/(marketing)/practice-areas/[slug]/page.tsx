@@ -8,7 +8,7 @@ import { CallToAction } from "@/components/sections/CallToAction";
 import { FiArrowRight, FiCheckCircle } from "react-icons/fi";
 
 interface PracticeAreaPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {

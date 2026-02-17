@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar } from "@/components/ui/calendar";
 import { PRACTICE_AREAS, TIME_SLOTS } from "@/lib/constants";
 import { formatDate } from "@/lib/utils";
-import { FiCalendar, FiClock, FiUser, FiMessageSquare, FiCheck, FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { FiCalendar, FiUser, FiMessageSquare, FiCheck, FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
 const STEPS = [
@@ -39,14 +39,14 @@ export function AppointmentForm() {
     resolver: zodResolver(appointmentFormSchema),
   });
 
-  const selectedDate = watch("preferredDate");
+  // const selectedDate = watch("preferredDate");
 
   const nextStep = async () => {
-    let fieldsToValidate: any[] = [];
+    let fieldsToValidate: (keyof AppointmentFormData)[] = [];
     if (step === 0) fieldsToValidate = ["name", "email", "phone"];
     if (step === 1) fieldsToValidate = ["preferredDate", "preferredTime", "practiceArea"];
 
-    const isValid = await trigger(fieldsToValidate as any);
+    const isValid = await trigger(fieldsToValidate);
     if (isValid) setStep(step + 1);
   };
 
@@ -76,7 +76,7 @@ export function AppointmentForm() {
       });
       reset();
       setStep(0);
-    } catch (error) {
+    } catch {
       setMessage({
         type: "error",
         text: "A technical error occurred. Please call our offices directly for immediate assistance.",
@@ -100,8 +100,8 @@ export function AppointmentForm() {
             <div key={s.id} className="relative z-10 flex flex-col items-center gap-3">
               <div
                 className={`w-12 h-12 flex items-center justify-center border-2 transition-all duration-500 bg-white ${isActive ? "border-primary text-primary scale-110 shadow-lg" :
-                    isCompleted ? "border-secondary bg-secondary text-black" :
-                      "border-gray-100 text-gray-300"
+                  isCompleted ? "border-secondary bg-secondary text-black" :
+                    "border-gray-100 text-gray-300"
                   }`}
               >
                 {isCompleted ? <FiCheck size={20} /> : <Icon size={20} />}
@@ -318,8 +318,8 @@ export function AppointmentForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className={`mt-8 p-6 text-center border-l-4 ${message.type === "success"
-                ? "bg-green-50 text-green-800 border-green-500"
-                : "bg-red-50 text-red-800 border-red-500"
+              ? "bg-green-50 text-green-800 border-green-500"
+              : "bg-red-50 text-red-800 border-red-500"
               }`}
           >
             <p className="font-serif italic text-lg">{message.text}</p>

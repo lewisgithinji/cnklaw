@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { Route } from "next";
 import { Button } from "@/components/ui/button";
-import { FIRM_INFO } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
@@ -43,6 +42,7 @@ export function HeroSlider() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsMounted(true);
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % SLIDES.length);

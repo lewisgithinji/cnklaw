@@ -32,7 +32,7 @@ export function getAllBlogPosts(): BlogPost[] {
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     return posts;
-  } catch (error) {
+  } catch {
     // If content directory doesn't exist yet, return empty array
     return [];
   }
@@ -56,7 +56,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
       readingTime: stats.text,
       image: data.image,
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }

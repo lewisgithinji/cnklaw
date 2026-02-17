@@ -3,7 +3,7 @@ import type { Route } from "next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { BlogPost } from "@/types";
 import { formatDate } from "@/lib/utils";
-import { FiClock, FiUser, FiTag, FiCalendar } from "react-icons/fi";
+import { FiUser, FiCalendar } from "react-icons/fi";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -37,7 +37,7 @@ export function BlogCard({ post }: BlogCardProps) {
 
         <CardContent className="flex-1 flex flex-col justify-between">
           <CardDescription className="mb-8 text-gray-600 line-clamp-3 text-base leading-relaxed h-18 font-light italic">
-            "{post.excerpt}"
+            &quot;{post.excerpt}&quot;
           </CardDescription>
 
           <div className="flex items-center justify-between pt-6 border-t border-gray-100">

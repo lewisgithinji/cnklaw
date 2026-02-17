@@ -60,7 +60,7 @@ export function Footer() {
               </h3>
             </Link>
             <p className="text-gray-400 text-base max-w-md leading-relaxed font-light italic">
-              "{FIRM_INFO.tagline} Providing world-class legal solutions with a commitment to integrity, excellence, and justice for all clients."
+              &quot;{FIRM_INFO.tagline} Providing world-class legal solutions with a commitment to integrity, excellence, and justice for all clients.&quot;
             </p>
             <div className="space-y-6 pt-4">
               <div className="flex items-start gap-4 text-gray-400 hover:text-secondary transition-colors group">

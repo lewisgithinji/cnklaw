@@ -39,7 +39,7 @@ export function ContactForm() {
 
       setMessage({ type: "success", text: "Thank you for your message! We'll get back to you soon." });
       reset();
-    } catch (error) {
+    } catch {
       setMessage({ type: "error", text: "Failed to send message. Please try again or contact us directly." });
     } finally {
       setIsLoading(false);
@@ -113,11 +113,10 @@ export function ContactForm() {
 
       {message && (
         <div
-          className={`p-4 rounded-md ${
-            message.type === "success"
+          className={`p-4 rounded-md ${message.type === "success"
               ? "bg-green-50 text-green-800 border border-green-200"
               : "bg-red-50 text-red-800 border border-red-200"
-          }`}
+            }`}
         >
           {message.text}
         </div>

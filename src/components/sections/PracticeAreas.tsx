@@ -8,13 +8,12 @@ import {
   FiHome,
   FiDollarSign,
   FiShield,
-  FiBookOpen,
   FiUsers,
-  FiKey,
   FiAward
 } from "react-icons/fi";
+import { IconType } from "react-icons";
 
-const ICON_MAP: Record<string, any> = {
+const ICON_MAP: Record<string, IconType> = {
   "corporate-commercial-law": FiBriefcase,
   "conveyance-land-law": FiHome,
   "banking-financial-law": FiDollarSign,

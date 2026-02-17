@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
 
                     <h2>7. Client Obligations</h2>
                     <p>
-                        Clients are expected to provide full, honest, and timely disclosure of all facts relevant to their matters. Failure to do so may result in the firm's withdrawal from the matter in accordance with professional ethics.
+                        Clients are expected to provide full, honest, and timely disclosure of all facts relevant to their matters. Failure to do so may result in the firm&apos;s withdrawal from the matter in accordance with professional ethics.
                     </p>
 
                     <h2>Contact</h2>

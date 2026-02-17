@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { FIRM_INFO } from "@/lib/constants";
@@ -62,7 +61,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary mb-8">Operating Principle</h2>
             <p className="text-3xl md:text-5xl font-serif font-medium leading-tight italic">
-              "To provide high quality legal services to our clients without compromising on legal ethics."
+              &quot;To provide high quality legal services to our clients without compromising on legal ethics.&quot;
             </p>
             <div className="mt-12 text-secondary/60 font-serif">— Our Mission Statement</div>
           </div>

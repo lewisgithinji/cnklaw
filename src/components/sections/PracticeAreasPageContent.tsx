@@ -7,7 +7,7 @@ import { PRACTICE_AREAS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { FiChevronRight, FiX, FiCheck } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function PracticeAreasContent() {
     const [selectedArea, setSelectedArea] = useState<typeof PRACTICE_AREAS[0] | null>(null);
@@ -16,8 +16,12 @@ export function PracticeAreasContent() {
         <div className="relative">
             {/* Hero Section */}
             <section className="relative h-[80vh] bg-primary overflow-hidden flex items-center">
-                <div
-                    className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-20"
+                <Image
+                    src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2000&auto=format&fit=crop"
+                    alt="Practice Areas Hero"
+                    fill
+                    className="object-cover grayscale opacity-20"
+                    priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-transparent to-white" />
 
