@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
+import { contactFormSchema } from "@/lib/validations";
 
 export const runtime = "edge";
-import { contactFormSchema } from "@/lib/validations";
-import { createEmailTransport } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -11,38 +10,26 @@ export async function POST(request: Request) {
     // Validate request body
     const validatedData = contactFormSchema.parse(body);
 
-    // Create email transport
-    const transporter = createEmailTransport();
-
-    // Send email to firm
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.CONTACT_EMAIL,
-      subject: `New Contact Form Submission from ${validatedData.name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${validatedData.name}</p>
-        <p><strong>Email:</strong> ${validatedData.email}</p>
-        <p><strong>Phone:</strong> ${validatedData.phone}</p>
-        <p><strong>Message:</strong></p>
-        <p>${validatedData.message}</p>
-      `,
+    // Send to Web3Forms (Edge Compatible)
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: process.env.WEB3FORMS_ACCESS_KEY,
+        subject: `New Contact Form Submission from ${validatedData.name}`,
+        from_name: "CNK Law Website",
+        ...validatedData,
+      }),
     });
 
-    // Send confirmation to user
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: validatedData.email,
-      subject: "Thank you for contacting CNK Law",
-      html: `
-        <h2>Thank You for Contacting Us</h2>
-        <p>Dear ${validatedData.name},</p>
-        <p>We have received your message and will get back to you as soon as possible, typically within 24 hours.</p>
-        <p>If your matter is urgent, please call us directly at ${process.env.CONTACT_EMAIL}.</p>
-        <br>
-        <p>Best regards,<br>CNK Law Team</p>
-      `,
-    });
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "Failed to submit to Web3Forms");
+    }
 
     return NextResponse.json(
       { success: true, message: "Message sent successfully" },

@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
+import { newsletterSchema } from "@/lib/validations";
 
 export const runtime = "edge";
-import { newsletterSchema } from "@/lib/validations";
-import { createEmailTransport } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -11,45 +10,26 @@ export async function POST(request: Request) {
     // Validate request body
     const validatedData = newsletterSchema.parse(body);
 
-    // Create email transport
-    const transporter = createEmailTransport();
-
-    // Send notification to firm about new subscriber
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.CONTACT_EMAIL,
-      subject: "New Newsletter Subscription",
-      html: `
-        <h2>New Newsletter Subscriber</h2>
-        <p><strong>Email:</strong> ${validatedData.email}</p>
-        <p><strong>Subscribed at:</strong> ${new Date().toLocaleString()}</p>
-      `,
+    // Send to Web3Forms (Edge Compatible)
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: process.env.WEB3FORMS_ACCESS_KEY,
+        subject: "New Newsletter Subscription",
+        from_name: "CNK Law Website",
+        ...validatedData,
+      }),
     });
 
-    // Send welcome email to subscriber
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: validatedData.email,
-      subject: "Welcome to CNK Law Newsletter",
-      html: `
-        <h2>Welcome to Our Newsletter!</h2>
-        <p>Thank you for subscribing to the CNK Law newsletter.</p>
-        <p>You'll receive regular updates with:</p>
-        <ul>
-          <li>Legal insights and analysis</li>
-          <li>Updates on new laws and regulations</li>
-          <li>Firm news and events</li>
-          <li>Practical legal guidance</li>
-        </ul>
-        <p>We're committed to keeping you informed and providing valuable legal information.</p>
-        <br>
-        <p>Best regards,<br>CNK Law Team</p>
-        <br>
-        <p style="font-size: 12px; color: #666;">
-          You can unsubscribe at any time by contacting us at ${process.env.CONTACT_EMAIL}
-        </p>
-      `,
-    });
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "Failed to submit to Web3Forms");
+    }
 
     return NextResponse.json(
       { success: true, message: "Successfully subscribed to newsletter" },

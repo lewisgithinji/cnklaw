@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-export const runtime = "edge";
 import { notFound } from "next/navigation";
 import { ATTORNEYS, FIRM_INFO } from "@/lib/constants";
 import { FiMail, FiPhone, FiLinkedin, FiArrowLeft, FiAward, FiBook } from "react-icons/fi";
