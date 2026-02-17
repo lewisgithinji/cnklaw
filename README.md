@@ -1,90 +1,65 @@
-# CNK Law Firm Website
+# CNK Law Firm | World-Class Legal Excellence
 
-A modern, high-performance law firm website built with Next.js 15, TypeScript, Tailwind CSS, and Shadcn UI.
+A prestigious, high-performance digital presence for **C.N. Karanja & Associates (CNK Law)**. Built with a "Cinematic First" design philosophy, this platform combines modern legal advocacy with cutting-edge web technology.
 
-## Features
+## 🏛️ Project Vision
+This platform is designed to project **Authority, Excellence, and Justice**. It transcends traditional legal web design by implementing an immersive, glassmorphism-inspired UI that guides clients through a cinematic narrative—from the heart of the Westlands business hub to the Supreme Court of Kenya.
 
-- ✅ Modern, responsive design
-- ✅ Fast loading with optimized performance
-- ✅ SEO-friendly with structured data
-- ✅ Contact and appointment booking forms
-- ✅ Newsletter subscription
-- ✅ Blog system with MDX support
-- ✅ Google Maps integration
-- ✅ Mobile-responsive navigation
-- ✅ Accessible UI components (Shadcn UI)
+## ✨ Premium Features
 
-## Tech Stack
+### 🎬 Cinematic Hero Slider
+- **Narrative Journey**: A multi-slide, cross-fading experience transitioning from an authentic Westlands skyline to the Supreme Court, ending with a unified "Architectural Glass Mural" of the legal team.
+- **CNK Burgundy Grade**: Custom-developed image processing pipeline that applies brand-coordinated burgundy grading and cinematic depth-of-field to all hero assets.
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4
-- **UI Components**: Shadcn UI
-- **Form Handling**: React Hook Form + Zod
-- **Email**: Nodemailer
-- **Maps**: Google Maps via @next/third-parties
-- **Blog**: MDX with gray-matter
+### 💎 Immersive UI/UX
+- **Glassmorphism Design**: High-end header and component structures utilizing backdrop blurs and subtle gold accents for a premium "legal suite" feel.
+- **Dynamic Practice Areas**: Full-screen, high-resolution immersive detail views for all practice areas including Corporate, Family, and Intellectual Property Law.
+- **Staff Mural Architecture**: A custom-engineered team composite that integrates staff portraits into an elegant architectural environment.
 
-## Getting Started
+### 📅 Strategic Advocacy Tools
+- **Optimized Booking Flow**: A centered, cinematic appointment system designed for high conversion and professional intake.
+- **MDX Data Intelligence**: A robust blog engine powered by MDX and Gray-Matter for high-impact legal insights.
+- **Global Presence**: Integrated multi-region contact capabilities and interactive maps.
 
-### Development Server
+## 🛠️ Tech Stack
 
+- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Aesthetics**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Image Intelligence**: [Sharp](https://sharp.pixelplumbing.com/) (for cinematic grading & asset optimization)
+- **Email/Compliance**: Nodemailer + Web3Forms
+
+## 🚀 Getting Started
+
+### 1. Development Environment
 ```bash
+npm install
 npm run dev
 ```
+Access the local environment at `http://localhost:3000`.
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Environment Variables
-
-Copy `.env.example` to `.env.local` and fill in:
-- Google Maps API key
-- Email SMTP configuration
-- Newsletter service credentials (optional)
-
-### Build for Production
-
+### 2. Cinematic Asset Generation
+To regenerate the unified team mural or apply brand tints to new hero assets:
 ```bash
-npm run build
-npm start
+node scripts/generate-team-hero.mjs
 ```
 
-## Project Status
+### 3. Environment Configuration
+Ensure your `.env.local` includes the following:
+- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`
+- `WEB3FORMS_ACCESS_KEY`
+- SMTP Credentials for local notifications.
 
-### ✅ Completed
-- Next.js 15 + TypeScript setup
-- Tailwind CSS v4 + Shadcn UI
-- Header & Footer components
-- Homepage with Hero & Practice Areas
-- Form validation with Zod
-- Newsletter signup form
-- Environment configuration
+## 📐 Architecture
+- `src/app`: Immersive App Router routes.
+- `src/components/sections`: High-impact UI components (Hero, Practice Areas).
+- `src/lib/constants.ts`: The "Brand Soul" containing all firm information and site metadata.
+- `public/Hero`: Optimized cinematic visual assets.
 
-### 🚧 To Complete
-- Remaining pages (About, Contact, Blog, etc.)
-- Form components (Contact, Appointment)
-- API routes for form submissions
-- Google Maps integration
-- Blog MDX posts
-- SEO metadata
+---
 
-## Next Steps
-
-1. Provide company profile to populate:
-   - Practice areas
-   - Attorney profiles
-   - Contact information
-   - Office location (for Google Maps)
-
-2. Complete remaining pages and forms
-3. Add content and test functionality
-
-## Configuration
-
-Edit `src/lib/constants.ts` to update firm information, practice areas, and attorney profiles.
-
-## Documentation
-
-- [Next.js Docs](https://nextjs.org/docs)
-- [Shadcn UI](https://ui.shadcn.com)
-- [Tailwind CSS](https://tailwindcss.com/docs)
+### 🖋️ Site Architecture
+**Architected by [DataCare](https://datacare.co.ke)**
+*Copyright &copy; 2026 C.N. Karanja & Associates. All Rights Reserved.*
