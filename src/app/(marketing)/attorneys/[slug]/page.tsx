@@ -15,8 +15,6 @@ export async function generateStaticParams() {
     }));
 }
 
-export const runtime = "edge";
-
 export async function generateMetadata({ params }: AttorneyPageProps): Promise<Metadata> {
     const { slug } = await params;
     const attorney = ATTORNEYS.find((a) => a.slug === slug);
