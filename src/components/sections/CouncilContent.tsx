@@ -69,7 +69,7 @@ export function CouncilContent() {
     return (
         <>
             <section className="relative h-screen bg-primary overflow-hidden flex items-center">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2000&auto=format&fit=crop')] opacity-20 grayscale scale-105" />
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2000&auto=format&fit=crop')] opacity-30 grayscale scale-105" />
                 <div className="max-w-7xl mx-auto px-4 relative z-10 w-full text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -85,7 +85,11 @@ export function CouncilContent() {
                         <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light mb-12">
                             A collective of seasoned legal minds and dedicated professionals working in unison to protect your interests through strategic advocacy.
                         </p>
-                        <Button size="lg" variant="outline" className="text-white border-white/30 hover:bg-white hover:text-black rounded-none h-16 px-12 font-bold transition-all" onClick={() => document.getElementById('leadership')?.scrollIntoView({ behavior: 'smooth' })}>
+                        <Button
+                            size="lg"
+                            className="bg-secondary text-black hover:bg-secondary/90 rounded-none h-16 px-12 font-bold transition-all uppercase tracking-widest shadow-2xl"
+                            onClick={() => document.getElementById('leadership')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
                             Meet the Partners
                         </Button>
                     </motion.div>
