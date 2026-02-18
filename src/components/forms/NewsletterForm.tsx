@@ -29,20 +29,39 @@ export function NewsletterForm() {
     setIsLoading(true);
     setMessage(null);
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      setMessage({ type: "error", text: "Contact key missing." });
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch("/api/newsletter", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: "New Newsletter Subscription",
+          from_name: "CNK Law Website",
+          ...data,
+        }),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to subscribe");
+        throw new Error(result.message || "Failed to subscribe");
       }
 
       setMessage({ type: "success", text: "Successfully subscribed to newsletter!" });
       reset();
-    } catch {
+    } catch (error) {
+      console.error("Newsletter error:", error);
       setMessage({ type: "error", text: "Failed to subscribe. Please try again." });
     } finally {
       setIsLoading(false);

@@ -26,20 +26,39 @@ export function ContactForm() {
     setIsLoading(true);
     setMessage(null);
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      setMessage({ type: "error", text: "Contact key is not configured. Please contact support." });
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Contact Form Submission from ${data.name}`,
+          from_name: "CNK Law Website",
+          ...data,
+        }),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to send message");
+        throw new Error(result.message || "Failed to send message");
       }
 
       setMessage({ type: "success", text: "Thank you for your message! We'll get back to you soon." });
       reset();
-    } catch {
+    } catch (error) {
+      console.error("Submission error:", error);
       setMessage({ type: "error", text: "Failed to send message. Please try again or contact us directly." });
     } finally {
       setIsLoading(false);
@@ -114,8 +133,8 @@ export function ContactForm() {
       {message && (
         <div
           className={`p-4 rounded-md ${message.type === "success"
-              ? "bg-green-50 text-green-800 border border-green-200"
-              : "bg-red-50 text-red-800 border border-red-200"
+            ? "bg-green-50 text-green-800 border border-green-200"
+            : "bg-red-50 text-red-800 border border-red-200"
             }`}
         >
           {message.text}

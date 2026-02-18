@@ -56,18 +56,37 @@ export function AppointmentForm() {
     setIsLoading(true);
     setMessage(null);
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      setMessage({
+        type: "error",
+        text: "Appointment key missing. Please contact us directly.",
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch("/api/appointments", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Appointment Request from ${data.name}`,
+          from_name: "CNK Law Website",
           ...data,
-          preferredDate: data.preferredDate.toISOString(),
+          preferredDate: formatDate(data.preferredDate),
         }),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to book appointment");
+        throw new Error(result.message || "Failed to book appointment");
       }
 
       setMessage({
@@ -76,7 +95,8 @@ export function AppointmentForm() {
       });
       reset();
       setStep(0);
-    } catch {
+    } catch (error) {
+      console.error("Appointment error:", error);
       setMessage({
         type: "error",
         text: "A technical error occurred. Please call our offices directly for immediate assistance.",
