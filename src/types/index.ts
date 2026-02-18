@@ -16,6 +16,7 @@ export interface TeamMember {
   name: string;
   title: string;
   bio: string;
+  shortBio?: string;
   image?: string;
   category: TeamRole;
   email?: string;

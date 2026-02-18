@@ -143,7 +143,9 @@ export const TEAM: TeamMember[] = [
     title: "Legal Secretary & Litigation Assistant",
     category: "Support Staff",
     bio: "Ann Wanjiku is a highly skilled administrative professional specializing in Litigation and Commercial Law support. With extensive experience across leading civil engineering and legal firms, Ann provides critical support in case management and judicial filings. She is a trained legal secretary with a focus on administrative efficiency and client service.",
+    shortBio: "Specializing in litigation support and case management, Ann brings extensive experience from leading legal and engineering firms to ensure precise judicial filings and seamless administrative coordination.",
     image: "/Staff/optimized/AnnWanjiku.jpg",
+    objectPosition: "object-top",
   },
   {
     id: "5",
@@ -151,7 +153,9 @@ export const TEAM: TeamMember[] = [
     title: "Senior Accountant & Auditor",
     category: "Administration",
     bio: "Lawrence Mungai oversees the firm's financial integrity and audit compliance. With a background in corporate accounting at Bata Shoe Company and specialized experience in legal auditing and conveyancing finance, Lawrence ensures the firm's financial operations are precise and transparent.",
+    shortBio: "Overseeing our financial integrity and audit compliance, Lawrence combines corporate accounting expertise with specialized knowledge in legal finance and conveyancing transactions.",
     image: "/Staff/optimized/Mungai.jpg",
+    objectPosition: "object-top",
   },
   {
     id: "6",
@@ -159,7 +163,9 @@ export const TEAM: TeamMember[] = [
     title: "Office Assistant",
     category: "Support Staff",
     bio: "Sarah Muigai provides essential operational support, ensuring the firm remains responsive and organized. Her previous experience in hospitality and legal office management contributes to the professional environment our clients expect.",
+    shortBio: "Ensuring our firm runs with clockwork precision, Sarah contributes hospitality-grade client service and strong organizational skills to our daily operations.",
     image: "/Staff/optimized/Sarah2.jpg",
+    objectPosition: "object-top",
   }
 ];
 
