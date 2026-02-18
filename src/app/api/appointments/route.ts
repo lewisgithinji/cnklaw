@@ -55,25 +55,19 @@ export async function POST(request: Request) {
       },
       { status: 200 }
     );
-  } catch (error) {
-    console.error("Appointment request error:", error);
+  } catch (error: unknown) {
+    const err = error instanceof Error ? error : new Error(String(error));
+    console.error("Appointment request error:", err);
 
-    if (error instanceof Error && error.message.includes("ZodError")) {
-      return NextResponse.json(
-        { success: false, message: "Invalid appointment request data" },
-        { status: 400 }
-      );
-    }
-
-    if (error instanceof Error && error.message.includes("WEB3FORMS_ACCESS_KEY")) {
-      return NextResponse.json(
-        { success: false, message: "Server configuration error (Secret Key Missing)" },
-        { status: 500 }
-      );
-    }
+    const isMissingKey = err.message.includes("WEB3FORMS_ACCESS_KEY");
 
     return NextResponse.json(
-      { success: false, message: "An unexpected error occurred. Please try again later." },
+      {
+        success: false,
+        message: isMissingKey
+          ? "Server configuration error (Appointment Key Missing)"
+          : "An unexpected error occurred. Please try again later."
+      },
       { status: 500 }
     );
   }
