@@ -28,6 +28,7 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "User-Agent": "CNK-Law-Website-Edge-Worker",
       },
       body: JSON.stringify({
         access_key: process.env.WEB3FORMS_ACCESS_KEY,
@@ -38,10 +39,19 @@ export async function POST(request: Request) {
       }),
     });
 
-    const result = await response.json();
+    const resultText = await response.text();
+    let result;
+    try {
+      result = JSON.parse(resultText);
+    } catch (e) {
+      if (resultText.includes("error code: 1106")) {
+        throw new Error("Cloudflare blocked the request (Error 1106). Check Access Key.");
+      }
+      throw new Error(`Upstream error: ${resultText.substring(0, 100)}`);
+    }
 
     if (!response.ok) {
-      throw new Error(result.message || "Failed to submit to Web3Forms");
+      throw new Error(result.message || "Web3Forms submission failed");
     }
 
     return NextResponse.json(
