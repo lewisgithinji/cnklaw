@@ -138,14 +138,6 @@ export const TEAM: TeamMember[] = [
     experience: "5+ Years",
   },
   {
-    id: "3",
-    name: "Mary Veronica Wanjiku",
-    title: "Executive Legal Secretary & Office Administration Manager",
-    category: "Administration",
-    bio: "Mary Veronica Wanjiku is a cornerstone of our firm's operations. With an illustrious career spanning over 30 years, she brings unparalleled expertise in executive legal administration. Her profound knowledge of Conveyancing and Land Registry protocols was honed during her tenure at the Ministry of Lands and Settlement (Principal Registrar of Titles). She ensures the seamless execution of complex legal documentation and firm oversight.",
-    image: "/Staff/optimized/SarahWanjiku.jpg",
-  },
-  {
     id: "4",
     name: "Ann Wanjiku",
     title: "Legal Secretary & Litigation Assistant",

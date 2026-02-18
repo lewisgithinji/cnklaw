@@ -114,7 +114,7 @@ export function CouncilContent() {
                         <h2 className="text-5xl font-serif font-bold text-gray-900 italic leading-tight">Legal Support <br />Specialists</h2>
                         <p className="text-gray-500 uppercase tracking-[0.3em] text-[10px] mt-4 font-bold">Administration & Strategic Coordination</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {support.map((member, i) => (
                             <MemberCard key={member.id} member={member} idx={i} />
                         ))}
