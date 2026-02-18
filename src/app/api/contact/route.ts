@@ -15,36 +15,40 @@ export async function POST(request: Request) {
       throw new Error("WEB3FORMS_ACCESS_KEY is not defined");
     }
 
-    // Send to Web3Forms (Edge Compatible)
+    // Convert to Form Data (Often more successful bypassing WAFs)
+    const formData = new URLSearchParams();
+    formData.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", `New Contact Form Submission from ${validatedData.name}`);
+    formData.append("from_name", "CNK Law Website");
+    Object.entries(validatedData).forEach(([key, value]) => {
+      formData.append(key, String(value));
+    });
+
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         Accept: "application/json",
-        "User-Agent": "CNK-Law-Website-Edge-Worker",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       },
-      body: JSON.stringify({
-        access_key: process.env.WEB3FORMS_ACCESS_KEY,
-        subject: `New Contact Form Submission from ${validatedData.name}`,
-        from_name: "CNK Law Website",
-        ...validatedData,
-      }),
+      body: formData,
     });
 
     const resultText = await response.text();
+    const statusCode = response.status;
+
+    if (resultText.includes("1106") || statusCode === 403) {
+      throw new Error(`Cloudflare Access Denied (Error 1106). Status: ${statusCode}. This usually means the Access Key is missing or Web3Forms is blocking the Worker IP.`);
+    }
+
     let result;
     try {
       result = JSON.parse(resultText);
     } catch (e) {
-      // If result is not JSON, it's likely a Cloudflare block page (Error 1106)
-      if (resultText.includes("error code: 1106")) {
-        throw new Error("Cloudflare blocked the request (Error 1106). Check if the Access Key is valid and allowed.");
-      }
-      throw new Error(`Upstream error: ${resultText.substring(0, 100)}`);
+      throw new Error(`Server returned non-JSON response (${statusCode}): ${resultText.substring(0, 50)}...`);
     }
 
     if (!response.ok) {
-      throw new Error(result.message || "Web3Forms submission failed");
+      throw new Error(result.message || `Submission failed with status ${statusCode}`);
     }
 
     return NextResponse.json(

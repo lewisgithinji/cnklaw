@@ -22,36 +22,44 @@ export async function POST(request: Request) {
       throw new Error("Missing WEB3FORMS_ACCESS_KEY environment variable");
     }
 
-    // Send to Web3Forms (Edge Compatible)
+    // Convert to Form Data
+    const formData = new URLSearchParams();
+    formData.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", `New Appointment Request from ${validatedData.name}`);
+    formData.append("from_name", "CNK Law Website");
+    Object.entries(validatedData).forEach(([key, value]) => {
+      if (key === "preferredDate") {
+        formData.append(key, formatDate(validatedData.preferredDate));
+      } else {
+        formData.append(key, String(value));
+      }
+    });
+
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         Accept: "application/json",
-        "User-Agent": "CNK-Law-Website-Edge-Worker",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       },
-      body: JSON.stringify({
-        access_key: process.env.WEB3FORMS_ACCESS_KEY,
-        subject: `New Appointment Request from ${validatedData.name}`,
-        from_name: "CNK Law Website",
-        ...validatedData,
-        preferredDate: formatDate(validatedData.preferredDate),
-      }),
+      body: formData,
     });
 
     const resultText = await response.text();
+    const statusCode = response.status;
+
+    if (resultText.includes("1106") || statusCode === 403) {
+      throw new Error(`Cloudflare Access Denied (Error 1106). Status: ${statusCode}`);
+    }
+
     let result;
     try {
       result = JSON.parse(resultText);
     } catch (e) {
-      if (resultText.includes("error code: 1106")) {
-        throw new Error("Cloudflare blocked the request (Error 1106). Check Access Key.");
-      }
-      throw new Error(`Upstream error: ${resultText.substring(0, 100)}`);
+      throw new Error(`Server returned non-JSON response (${statusCode})`);
     }
 
     if (!response.ok) {
-      throw new Error(result.message || "Web3Forms submission failed");
+      throw new Error(result.message || "Appointment request failed");
     }
 
     return NextResponse.json(
