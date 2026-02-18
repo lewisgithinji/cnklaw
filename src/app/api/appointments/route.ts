@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { appointmentFormSchema } from "@/lib/validations";
 import { formatDate } from "@/lib/utils";
+import { ZodError } from "zod";
 
 export const runtime = "edge";
 
@@ -56,17 +57,28 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error: unknown) {
-    const err = error instanceof Error ? error : new Error(String(error));
-    console.error("Appointment request error:", err);
+    console.error("Appointment request error:", error);
 
-    const isMissingKey = err.message.includes("WEB3FORMS_ACCESS_KEY");
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Validation Error",
+          errors: error.issues.map((issue) => ({ path: issue.path, message: issue.message }))
+        },
+        { status: 400 }
+      );
+    }
+
+    const err = error instanceof Error ? error : new Error(String(error));
+    const isConfigError = err.message.includes("WEB3FORMS_ACCESS_KEY");
 
     return NextResponse.json(
       {
         success: false,
-        message: isMissingKey
+        message: isConfigError
           ? "Server configuration error (Appointment Key Missing)"
-          : "An unexpected error occurred. Please try again later."
+          : err.message || "An unexpected error occurred"
       },
       { status: 500 }
     );
