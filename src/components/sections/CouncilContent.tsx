@@ -7,8 +7,8 @@ import Link from "next/link";
 import type { Route } from "next";
 import { FiArrowRight } from "react-icons/fi";
 import { TEAM } from "@/lib/constants";
-
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function CouncilContent() {
     const partners = TEAM.filter(m => m.category === "Partner");
@@ -25,9 +25,11 @@ export function CouncilContent() {
             <Card className="group rounded-none border-gray-100 hover:border-secondary/40 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-2xl h-full flex flex-col bg-white">
                 <div className="relative h-80 overflow-hidden bg-primary">
                     {member.image ? (
-                        <img
+                        <Image
                             src={member.image}
                             alt={member.name}
+                            width={400}
+                            height={320}
                             className={cn(
                                 "w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700",
                                 member.objectPosition || "object-center"

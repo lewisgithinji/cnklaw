@@ -30,6 +30,9 @@ export async function generateMetadata({ params }: PracticeAreaPageProps): Promi
   return {
     title: area.title,
     description: area.description,
+    alternates: {
+      canonical: `/practice-areas/${slug}`,
+    },
   };
 }
 
@@ -51,6 +54,69 @@ export default async function PracticeAreaDetailPage({ params }: PracticeAreaPag
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://cnklaw.co.ke"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Practice Areas",
+                "item": "https://cnklaw.co.ke/practice-areas"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": area.title,
+                "item": `https://cnklaw.co.ke/practice-areas/${area.slug}`
+              }
+            ]
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": area.title,
+            "description": area.description,
+            "provider": {
+              "@type": "LegalService",
+              "name": FIRM_INFO.name,
+              "url": "https://cnklaw.co.ke",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": FIRM_INFO.address.street,
+                "addressLocality": FIRM_INFO.address.city,
+                "addressCountry": FIRM_INFO.address.country,
+              }
+            },
+            "areaServed": "KE",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": area.title,
+              "itemListElement": area.expertisePoints?.map((point, i) => ({
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": point
+                }
+              }))
+            }
+          }),
+        }}
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-primary text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
@@ -179,21 +245,6 @@ export default async function PracticeAreaDetailPage({ params }: PracticeAreaPag
 
       {/* Directory Navigation */}
       <section className="py-24 bg-gray-50 overflow-hidden">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              "serviceType": area.title,
-              "description": area.description,
-              "provider": {
-                "@type": "LegalService",
-                "name": FIRM_INFO.name,
-              },
-            }),
-          }}
-        />
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">

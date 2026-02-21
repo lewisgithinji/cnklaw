@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { FIRM_INFO } from "@/lib/constants";
 import { AboutHero } from "@/components/sections/AboutHero";
@@ -6,11 +7,37 @@ import { AboutHero } from "@/components/sections/AboutHero";
 export const metadata: Metadata = {
   title: "About Us",
   description: `Learn about ${FIRM_INFO.name} - our history, mission, values, and commitment to providing excellent legal services in Kenya.`,
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://cnklaw.co.ke"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://cnklaw.co.ke/about"
+              }
+            ]
+          }),
+        }}
+      />
       <AboutHero />
 
       {/* Our Story Section */}
@@ -44,9 +71,11 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <div className="absolute -top-10 -right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
-              <img
+              <Image
                 src="/Staff/optimized/Partners.jpg"
                 alt="CNK Law Partners"
+                width={800}
+                height={1000}
                 className="relative z-10 w-full aspect-[4/5] object-cover grayscale shadow-2xl"
               />
             </div>

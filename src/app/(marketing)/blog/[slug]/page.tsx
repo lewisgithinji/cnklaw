@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { notFound } from "next/navigation";
@@ -33,6 +34,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
   };
 }
 
@@ -60,6 +64,64 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://cnklaw.co.ke"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://cnklaw.co.ke/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title,
+                "item": `https://cnklaw.co.ke/blog/${post.slug}`
+              }
+            ]
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "author": {
+              "@type": "Person",
+              "name": post.author,
+            },
+            "datePublished": post.date,
+            "image": post.image,
+            "publisher": {
+              "@type": "LegalService",
+              "name": "C.N. Karanja & Associates",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://cnklaw.co.ke/cnklogo.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://cnklaw.co.ke/blog/${post.slug}`,
+            },
+          }),
+        }}
+      />
       <section className="bg-primary py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1920&auto=format&fit=crop')] opacity-10 grayscale" />
         <div className="container mx-auto px-4 relative z-10">
@@ -115,7 +177,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     {relatedPosts.map(related => (
                       <Link key={related.slug} href={`/blog/${related.slug}` as Route} className="group block h-full">
                         <div className="relative h-48 overflow-hidden mb-6">
-                          <img src={related.image} alt={related.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                          <Image src={related.image || "/Hero/skyline-hero.jpg"} alt={related.title} width={600} height={400} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                         </div>
                         <h4 className="text-xl font-serif font-bold italic group-hover:text-primary transition-colors mb-4 leading-tight">{related.title}</h4>
                         <p className="text-gray-500 text-sm line-clamp-2 italic">&quot;{related.excerpt}&quot;</p>

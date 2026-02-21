@@ -3,7 +3,7 @@ import { PRACTICE_AREAS } from "@/lib/constants";
 import { getAllBlogPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const baseUrl = "https://cnklaw.co.ke";
 
   // Static routes
   const staticRoutes = [

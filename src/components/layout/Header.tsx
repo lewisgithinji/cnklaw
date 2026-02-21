@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { FIRM_INFO, NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { FiMenu, FiX } from "react-icons/fi";
+import Image from "next/image";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,10 +19,13 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 flex h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <img
+          <Image
             src="/logo-transparent.png"
             alt={FIRM_INFO.name}
+            width={200}
+            height={72}
             className="h-[72px] w-auto object-contain brightness-110"
+            priority
           />
         </Link>
 
