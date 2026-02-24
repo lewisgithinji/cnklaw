@@ -129,7 +129,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=
 SMTP_PASSWORD=
-CONTACT_EMAIL=info@cnklaw.co.ke
+CONTACT_EMAIL=wakili@cnklaw.co.ke
 
 # Newsletter (optional)
 MAILCHIMP_API_KEY=
