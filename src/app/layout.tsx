@@ -66,8 +66,11 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION, // Placeholder to be filled in env
-    // bing: "your-bing-verification-code",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/logo.png',
   },
 };
 
@@ -124,11 +127,10 @@ export default function RootLayout({
       </head>
       <body className="font-sans selection:bg-primary/20" suppressHydrationWarning>
         {children}
-        {process.env.NEXT_PUBLIC_GA_ID && process.env.NEXT_PUBLIC_GA_ID !== "G-XXXXXXXXXX" && (
+        {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}
       </body>
     </html>
   );
 }
-

@@ -18,10 +18,9 @@ export default function manifest(): MetadataRoute.Manifest {
             },
             {
                 src: '/cnklogo.png',
-                sizes: '1374x1196 192x192 512x512',
+                sizes: '1374x1196',
                 type: 'image/png',
             },
         ],
     }
 }
-
