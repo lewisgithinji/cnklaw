@@ -60,10 +60,12 @@ export function PracticeAreasContent() {
                             >
                                 {/* Background Image with Parallax Transition */}
                                 <div className="absolute inset-0 bg-primary overflow-hidden">
-                                    <img
+                                    <Image
                                         src={area.image}
                                         alt={area.title}
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 opacity-40 group-hover:opacity-100"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 opacity-40 group-hover:opacity-100"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent group-hover:via-transparent transition-all duration-700" />
                                 </div>
@@ -124,14 +126,21 @@ export function PracticeAreasContent() {
 
                             {/* Left: Immersive Visual */}
                             <div className="lg:col-span-5 relative h-[40vh] lg:h-full overflow-hidden bg-primary">
-                                <motion.img
+                                <motion.div
                                     initial={{ scale: 1.2, filter: "grayscale(100%)" }}
                                     animate={{ scale: 1, filter: "grayscale(0%)" }}
                                     transition={{ duration: 1.5 }}
-                                    src={selectedArea.image}
-                                    alt={selectedArea.title}
-                                    className="w-full h-full object-cover"
-                                />
+                                    className="w-full h-full"
+                                >
+                                    <Image
+                                        src={selectedArea.image}
+                                        alt={selectedArea.title}
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 40vw"
+                                        className="object-cover"
+                                        priority
+                                    />
+                                </motion.div>
                                 <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent" />
                                 <div className="absolute bottom-12 left-12 right-12">
                                     <div className="text-[10px] font-bold text-secondary uppercase tracking-[0.4em] mb-4">Strategic Practice</div>

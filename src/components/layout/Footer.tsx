@@ -78,7 +78,11 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-bold tracking-widest text-white/50 mb-1">Email Us</p>
-                  <a href={`mailto:${FIRM_INFO.email}`} className="text-sm font-medium">
+                  <a
+                    href={`mailto:${FIRM_INFO.email}`}
+                    className="text-sm font-medium"
+                    suppressHydrationWarning
+                  >
                     {FIRM_INFO.email}
                   </a>
                 </div>

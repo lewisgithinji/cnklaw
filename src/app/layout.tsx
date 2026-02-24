@@ -122,9 +122,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans selection:bg-primary/20">
+      <body className="font-sans selection:bg-primary/20" suppressHydrationWarning>
         {children}
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX"} />
+        {process.env.NEXT_PUBLIC_GA_ID && process.env.NEXT_PUBLIC_GA_ID !== "G-XXXXXXXXXX" && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
