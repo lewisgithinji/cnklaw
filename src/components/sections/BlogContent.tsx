@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -58,11 +59,8 @@ export function BlogContent({ posts }: { posts: Post[] }) {
                         >
                             <Link href={`/blog/${post.slug}` as Route} className="flex flex-col h-full hover:no-underline">
                                 <div className="relative h-72 overflow-hidden mb-8">
-                                    <img
-                                        src={post.image || "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop"}
-                                        alt={post.title}
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                                    />
+                                    <Image src={post.image || "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop"} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        alt={post.title} className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                                     <div className="absolute top-6 left-6 px-4 py-1 bg-white text-primary text-[10px] font-bold uppercase tracking-widest italic shadow-lg">
                                         {post.category}
                                     </div>
@@ -92,3 +90,6 @@ export function BlogContent({ posts }: { posts: Post[] }) {
         </>
     );
 }
+
+
+

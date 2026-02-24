@@ -61,7 +61,7 @@ export function PracticeAreasContent() {
                                 {/* Background Image with Parallax Transition */}
                                 <div className="absolute inset-0 bg-primary overflow-hidden">
                                     <Image
-                                        src={area.image}
+                                        src={area.image || "/Hero/skyline-hero.jpg"}
                                         alt={area.title}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -133,7 +133,7 @@ export function PracticeAreasContent() {
                                     className="w-full h-full"
                                 >
                                     <Image
-                                        src={selectedArea.image}
+                                        src={selectedArea.image || "/Hero/skyline-hero.jpg"}
                                         alt={selectedArea.title}
                                         fill
                                         sizes="(max-width: 1024px) 100vw, 40vw"

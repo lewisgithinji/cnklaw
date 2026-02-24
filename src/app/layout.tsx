@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION", // Placeholder to be filled in env
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION, // Placeholder to be filled in env
     // bing: "your-bing-verification-code",
   },
 };
@@ -131,3 +131,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +16,7 @@ export function BlogCard({ post }: BlogCardProps) {
       <Card className="h-full border-none shadow-none bg-white rounded-none transition-all duration-500 hover:shadow-2xl overflow-hidden flex flex-col group border-t-2 border-transparent hover:border-secondary">
         <div className="aspect-video bg-primary relative overflow-hidden">
           {post.image ? (
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <Image src={post.image || "/Hero/skyline-hero.jpg"} alt={post.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <span className="text-6xl font-serif font-bold text-secondary/20 uppercase">{post.title[0]}</span>
