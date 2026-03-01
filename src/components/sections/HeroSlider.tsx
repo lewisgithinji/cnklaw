@@ -80,23 +80,25 @@ export function HeroSlider() {
                     </div>
 
                     {/* Content Overlay */}
-                    <div className="relative z-20 h-full flex items-center">
+                    <div className={cn(
+                        "relative z-20 h-full flex items-center transition-all duration-1000",
+                        index === currentSlide ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    )}>
                         <div className="max-w-7xl mx-auto px-4 w-full">
                             <div className="max-w-3xl space-y-6">
-                                <div className="inline-block px-4 py-1 rounded-full bg-secondary/20 border border-secondary/30 backdrop-blur-sm text-secondary text-sm font-semibold tracking-wider uppercase animate-fade-in-up">
+                                <div className="inline-block px-4 py-1 rounded-full bg-secondary/20 border border-secondary/30 backdrop-blur-sm text-secondary text-sm font-semibold tracking-wider uppercase">
                                     {slide.subtitle}
                                 </div>
-                                <h1 className="text-5xl md:text-8xl font-serif font-bold text-white leading-tight animate-fade-in-up delay-100 italic">
+                                <h1 className="text-5xl md:text-8xl font-serif font-bold text-white leading-tight italic">
                                     {slide.title}
                                 </h1>
-                                <p className="text-xl md:text-2xl text-white/80 leading-relaxed animate-fade-in-up delay-200 font-light">
+                                <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
                                     {slide.description}
                                 </p>
-                                <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-up delay-300">
+                                <div className="flex flex-wrap gap-4 pt-4">
                                     <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 h-14 text-lg rounded-none transition-all hover:scale-105">
                                         <Link href={slide.link as Route}>{slide.cta}</Link>
                                     </Button>
-                                    {/* Fixed Button Visibility: Added bg-transparent and border/text clarity */}
                                     <Button asChild size="lg" variant="outline" className="bg-transparent border-white/60 text-white hover:bg-white hover:text-black px-8 h-14 text-lg rounded-none backdrop-blur-sm transition-all">
                                         <Link href={"/contact" as Route}>Contact Us</Link>
                                     </Button>

@@ -110,6 +110,36 @@ export const PRACTICE_AREAS: PracticeArea[] = [
       "Licensing & Franchise Agreements",
       "Industrial Design Protection"
     ]
+  },
+  {
+    slug: "legal-training-consultancy",
+    title: "Legal Training & Consultancy",
+    description: "Professional legal training and strategic consultancy for corporate and individual clients.",
+    icon: "briefcase",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb28f74b0cd?w=1600&q=80",
+    fullDescription: "We provide specialized legal training and consultancy services designed to empower organizations with legal knowledge and strategic insights. Our programs cover corporate governance, compliance, and emerging legal trends.",
+    expertisePoints: [
+      "Corporate Governance Training",
+      "Regulatory Compliance Workshops",
+      "Legal Risk Management",
+      "Strategic Legal Consultancy",
+      "Customized Legal Seminars"
+    ]
+  },
+  {
+    slug: "landlord-tenant-law",
+    title: "Landlords & Tenants Law",
+    description: "Expert navigation of leases, rent tribunal matters, and property management disputes.",
+    icon: "building",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80",
+    fullDescription: "We represent both landlords and tenants in complex lease negotiations and disputes. Our expertise extends to the Rent Tribunal, ensuring that our clients' property rights are protected and their obligations are clearly defined.",
+    expertisePoints: [
+      "Commercial & Residential Leases",
+      "Rent Tribunal Representation",
+      "Eviction Proceedings",
+      "Property Management Advisory",
+      "Lease Agreement Drafting"
+    ]
   }
 ];
 
@@ -120,7 +150,7 @@ export const TEAM: TeamMember[] = [
     name: "Catherine Nyambura Karanja (Mrs)",
     title: "Senior Partner",
     category: "Partner",
-    bio: "Mrs. Catherine Nyambura Karanja is an eminent legal practitioner with over 25 years of distinguished experience in Kenyan Jurisprudence. As the Senior Partner, she specializes in Conveyancing, Land Law, and Corporate Governance. Her unique expertise is backed by a former tenure as a Senior Registrar of Titles at the Ministry of Lands, and she holds an International Diploma in Land Information Systems from Sweden, making her one of the foremost authorities on land matters in the region.",
+    bio: "Mrs. Catherine Nyambura Karanja is an eminent legal practitioner with over 25 years of distinguished experience in Kenyan Jurisprudence. As the Senior Partner, she specializes in Conveyancing, Land Law, and Corporate Governance. Her unique expertise is backed by a former tenure as a Senior Registrar of Titles at the Ministry of Lands (16 years), and she holds an International Diploma in Land Information Systems from Sweden. She is an expert in the 2012 Land Acts, Stamp Duty procedures, and comprehensive land department management.",
     image: "/Staff/optimized/Catherine2.jpg",
     objectPosition: "object-center",
     specializations: ["Conveyancing", "Land Law", "Company Law", "Property Law"],
@@ -131,11 +161,19 @@ export const TEAM: TeamMember[] = [
     name: "Marvin Mucheru Mwirikia",
     title: "Associate",
     category: "Associate",
-    bio: "Mr. Marvin Mucheru Mwirikia is a dynamic legal professional committed to excellence in advocacy. He specializes in Civil Litigation, Probate & Succession, and Intellectual Property Law. Marvin holds an LLB (Hons) from Mount Kenya University and a Diploma in Advocacy from the Kenya School of Law, combining academic rigor with a practical, solution-oriented approach to complex legal disputes.",
+    bio: "Mr. Marvin Mucheru Mwirikia is a dynamic legal professional committed to excellence in advocacy. With over 1 year of post-admission experience, he focuses on Conveyance, Civil Litigation, Probate & Succession, Debt Collection, Commercial, Intellectual Property, and Employment Law. Marvin holds an LLB (Hons) from Mount Kenya University and a Diploma in Advocacy from the Kenya School of Law.",
     image: "/Staff/optimized/Marvin.jpg",
     objectPosition: "object-top",
-    specializations: ["Civil Litigation", "Probate & Succession", "Commercial Law"],
-    experience: "5+ Years",
+    specializations: ["Conveyance", "Civil Litigation", "Probate & Succession", "Commercial Law"],
+    experience: "1+ Years",
+  },
+  {
+    id: "3",
+    name: "Mary Veronica Wanjiku",
+    title: "Legal Secretary & Admin Manager",
+    category: "Support Staff",
+    bio: "Mary Veronica Wanjiku serves as the Legal Secretary and Admin Manager at CNK Law. Bringing invaluable experience from her previous tenure at the Ministry of Lands, she oversees the firm's administrative operations, ensuring seamless coordination between our legal teams and administrative departments.",
+    shortBio: "Admin Manager and Legal Secretary with specialized experience from the Ministry of Lands, ensuring operational excellence and administrative precision.",
   },
   {
     id: "4",
@@ -169,6 +207,7 @@ export const TEAM: TeamMember[] = [
   }
 ];
 
+
 export const ATTORNEYS = TEAM.filter(m => m.category === "Partner" || m.category === "Associate") as Attorney[];
 
 export const TIME_SLOTS = [
@@ -187,6 +226,7 @@ export const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/practice-areas", label: "Practice Areas" },
   { href: "/attorneys", label: "Our Team" },
+  { href: "/book-appointment", label: "Book Appointment" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];

@@ -55,7 +55,7 @@ export default function AboutPage() {
                   <strong> {FIRM_INFO.name}</strong> stands as a beacon of professional integrity and client-centric advocacy.
                 </p>
                 <p>
-                  Our firm brings together decades of specialized experience in land law, corporate governance, and complex dispute resolution. We pride ourselves on being strategic partners rather than just legal advisors.
+                  Our firm brings together decades of specialized experience in land law, corporate governance, and complex dispute resolution. We are positioning ourselves to meet the legal challenges of a globalized environment, establishing strategic links with international firms and financial advisors.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-12 pt-10 border-t border-gray-100">
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 "Accessible, dependable and timely service delivery.",
                 "Unwavering fairness and respect in all professional duties.",
                 "Total clarity and transparency in every legal operation.",
-                "Responsiveness to client needs and commitment to continuous improvement."
+                "Active Client Services Supervision (CSS) for quality assurance.",
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4 items-start">
                   <div className="w-6 h-6 rounded-none bg-primary flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">0{idx + 1}</div>

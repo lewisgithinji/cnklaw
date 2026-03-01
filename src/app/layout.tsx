@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    apple: '/logo.png',
+    apple: '/cnk-official-logo.png',
   },
 };
 
@@ -91,8 +91,8 @@ export default function RootLayout({
               "name": FIRM_INFO.name,
               "description": FIRM_INFO.description,
               "url": "https://cnklaw.co.ke",
-              "logo": "https://cnklaw.co.ke/cnklogo.png",
-              "image": "https://cnklaw.co.ke/cnklogo.png",
+              "logo": "https://cnklaw.co.ke/cnk-official-logo.png",
+              "image": "https://cnklaw.co.ke/cnk-official-logo.png",
               "telephone": FIRM_INFO.phone,
               "email": FIRM_INFO.email,
               "address": {

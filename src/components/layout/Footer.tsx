@@ -8,6 +8,7 @@ import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiFacebook } from "re
 import { motion } from "framer-motion";
 import { FaGavel, FaBalanceScale } from "react-icons/fa";
 import { HiOutlineLibrary } from "react-icons/hi";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -52,8 +53,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-8">
-            <Link href="/" className="inline-block">
-              <h3 className="text-3xl font-serif font-bold italic tracking-tight text-white">
+            <Link href="/" className="flex items-center gap-4 group">
+              <div className="relative w-12 h-12 overflow-hidden bg-white/5 p-1">
+                <Image
+                  src="/cnk-official-logo.png"
+                  alt="CNK Law"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-2xl font-serif font-bold italic tracking-tight text-white group-hover:text-secondary transition-colors">
                 {FIRM_INFO.name.split(' ').map((word, i) => (
                   <span key={i} className={i === 1 ? "text-secondary" : ""}>{word} </span>
                 ))}
@@ -105,7 +114,7 @@ export function Footer() {
           <div className="space-y-8">
             <h3 className="text-sm font-bold text-white uppercase tracking-[0.3em]">Navigation</h3>
             <ul className="space-y-5">
-              {[...NAV_LINKS, { label: "Book Appointment", href: "/book-appointment" }].map((link) => (
+              {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href as Route} className="text-gray-400 hover:text-secondary transition-all flex items-center group text-sm font-medium">
                     <span className="w-0 group-hover:w-4 h-px bg-secondary mr-0 group-hover:mr-3 transition-all" />

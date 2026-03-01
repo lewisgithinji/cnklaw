@@ -106,7 +106,7 @@ export default async function PracticeAreaDetailPage({ params }: PracticeAreaPag
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": area.title,
-              "itemListElement": area.expertisePoints?.map((point, i) => ({
+              "itemListElement": area.expertisePoints?.map((point) => ({
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
