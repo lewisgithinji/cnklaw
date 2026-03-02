@@ -47,7 +47,7 @@ export function Header() {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-                    {NAV_LINKS.map((link) => (
+                    {NAV_LINKS.filter(link => link.href !== "/book-appointment").map((link) => (
                         <Link
                             key={link.href}
                             href={link.href as Route}
@@ -64,13 +64,6 @@ export function Header() {
 
                 {/* CTA Button */}
                 <div className="hidden lg:flex items-center gap-6">
-                    <div className={cn(
-                        "hidden 2xl:flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest",
-                        isScrolled ? "text-gray-500" : "text-white/60"
-                    )}>
-                        <FiPhone className="text-secondary" />
-                        {FIRM_INFO.phone.split(' / ')[0]}
-                    </div>
                     <Link href="/book-appointment">
                         <Button
                             className={cn(
@@ -108,7 +101,7 @@ export function Header() {
                         className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-2xl lg:hidden overflow-hidden"
                     >
                         <div className="p-8 space-y-6">
-                            {NAV_LINKS.map((link) => (
+                            {NAV_LINKS.filter(link => link.href !== "/book-appointment").map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href as Route}
@@ -118,13 +111,9 @@ export function Header() {
                                     {link.label}
                                 </Link>
                             ))}
-                            <div className="pt-6 border-t border-gray-50">
-                                <p className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-4">Quick Contact</p>
-                                <p className="text-primary font-bold">{FIRM_INFO.phone}</p>
-                            </div>
                             <Link href="/contact" className="block pt-4">
                                 <Button className="w-full rounded-none bg-primary text-white font-bold uppercase tracking-widest text-xs h-14">
-                                    Free Consultation
+                                    Speak with an Advocate
                                 </Button>
                             </Link>
                         </div>

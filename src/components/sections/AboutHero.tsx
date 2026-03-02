@@ -18,11 +18,11 @@ export function AboutHero() {
                         Legacy of Trust
                     </div>
                     <h1 className="text-6xl md:text-9xl font-serif font-bold text-white mb-8 italic leading-none">
-                        Over 25 Years of <br />
+                        Over 30 Years of <br />
                         <span className="text-secondary underline decoration-1 underline-offset-[16px] xl:underline-offset-[24px]">Excellence</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-xl leading-relaxed font-light mb-12 italic">
-                        &quot;We provide professional legal solutions with utmost integrity and care for our clients.&quot;
+                        &quot;Providing high quality legal services without compromising on legal ethics.&quot;
                     </p>
                     <Button size="lg" className="bg-secondary text-black hover:bg-white rounded-none h-16 px-12 font-bold transition-all" onClick={() => document.getElementById('story')?.scrollIntoView({ behavior: 'smooth' })}>
                         Discover Our Journey

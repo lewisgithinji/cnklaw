@@ -60,7 +60,7 @@ export default function AboutPage() {
               </div>
               <div className="grid grid-cols-2 gap-12 pt-10 border-t border-gray-100">
                 <div>
-                  <div className="text-4xl font-serif font-bold text-primary mb-2 italic">25+</div>
+                  <div className="text-4xl font-serif font-bold text-primary mb-2 italic">30+</div>
                   <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Years of Practice</div>
                 </div>
                 <div>
@@ -87,12 +87,19 @@ export default function AboutPage() {
       <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px]" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary mb-8">Operating Principle</h2>
-            <p className="text-3xl md:text-5xl font-serif font-medium leading-tight italic">
-              &quot;To provide high quality legal services to our clients without compromising on legal ethics.&quot;
-            </p>
-            <div className="mt-12 text-secondary/60 font-serif">— Our Mission Statement</div>
+          <div className="max-w-4xl mx-auto text-center grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-6">
+              <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary mb-4">Our MISSION</h2>
+              <p className="text-2xl md:text-3xl font-serif font-medium leading-relaxed italic">
+                &quot;To provide high quality legal services to our clients without compromising on legal ethics.&quot;
+              </p>
+            </div>
+            <div className="space-y-6 border-l border-white/10 pl-8 md:pl-16">
+              <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary mb-4">Our Vision</h2>
+              <p className="text-2xl md:text-3xl font-serif font-medium leading-relaxed italic">
+                &quot;To be the point of reference for professional legal services in Kenya and beyond.&quot;
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -131,13 +138,15 @@ export default function AboutPage() {
             <div className="absolute -left-20 top-0 text-[200px] font-serif opacity-[0.03] select-none text-primary">STRATEGY</div>
             <h2 className="text-4xl font-serif font-bold mb-12 text-gray-900 relative">Our Strategic Theme</h2>
             <p className="text-xl mb-12 font-medium text-gray-700 leading-relaxed border-l-4 border-secondary pl-8">
-              At {FIRM_INFO.name}, we are committed to building a reputable law firm that leads through customer-friendly and high-quality legal innovation.
+              At {FIRM_INFO.name}, we are committed to building a reputable law firm that leads through customer-friendly and high-quality legal services.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {[
                 "Accessible, dependable and timely service delivery.",
                 "Unwavering fairness and respect in all professional duties.",
                 "Total clarity and transparency in every legal operation.",
+                "Responsiveness to client needs and commitment to service improvements.",
+                "Continuous development and retention of a professional workforce.",
                 "Active Client Services Supervision (CSS) for quality assurance.",
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4 items-start">

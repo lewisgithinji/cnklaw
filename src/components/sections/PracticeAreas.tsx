@@ -15,11 +15,14 @@ import { IconType } from "react-icons";
 
 const ICON_MAP: Record<string, IconType> = {
   "corporate-commercial-law": FiBriefcase,
-  "conveyance-land-law": FiHome,
-  "banking-financial-law": FiDollarSign,
-  "litigation-dispute-resolution": FiAward,
-  "family-law-succession": FiUsers,
+  "conveyancing-real-estate": FiHome,
+  "civil-criminal-litigation": FiAward,
+  "employment-labour-law": FiUsers,
+  "family-law-probate": FiUsers,
+  "dispute-resolution-adr": FiAward,
+  "insurance-law": FiShield,
   "intellectual-property": FiShield,
+  "banking-finance-law": FiDollarSign,
 };
 
 export function PracticeAreas() {

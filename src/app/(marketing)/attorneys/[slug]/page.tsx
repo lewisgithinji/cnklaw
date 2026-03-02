@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ATTORNEYS, FIRM_INFO } from "@/lib/constants";
 import { FiMail, FiPhone, FiLinkedin, FiArrowLeft, FiAward, FiBook } from "react-icons/fi";
@@ -56,9 +57,19 @@ export default async function AttorneyProfilePage({ params }: AttorneyPageProps)
                         {/* Portrait / Initials */}
                         <div className="md:col-span-4 lg:col-span-3">
                             <div className="aspect-[4/5] bg-white/10 border border-white/20 flex items-center justify-center relative group overflow-hidden">
-                                <span className="text-9xl font-serif font-bold text-secondary/30 group-hover:scale-110 transition-transform duration-700">
-                                    {attorney.name[0]}
-                                </span>
+                                {attorney.image ? (
+                                    <Image
+                                        src={attorney.image}
+                                        alt={attorney.name}
+                                        fill
+                                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                                        priority
+                                    />
+                                ) : (
+                                    <span className="text-9xl font-serif font-bold text-secondary/30 group-hover:scale-110 transition-transform duration-700">
+                                        {attorney.name[0]}
+                                    </span>
+                                )}
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
                         </div>

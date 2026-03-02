@@ -24,7 +24,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   {
     slug: "corporate-commercial-law",
     title: "Corporate & Commercial Law",
-    description: "Expertise in bankruptcy, receivership, business registration, and comprehensive company law matters.",
+    description: "Comprehensive advisory on business formation, restructuring, and commercial transactions.",
     icon: "briefcase",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80",
     fullDescription: "Our corporate department provides strategic advice on business formation, restructuring, and compliance with the Companies Act 2015. We handle complex commercial transactions, mergers, and acquisitions with a focus on risk mitigation and value optimization.",
@@ -37,9 +37,9 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     ]
   },
   {
-    slug: "conveyance-land-law",
-    title: "Conveyancing & Land Law",
-    description: "Specialized services in land registration, property transactions, and complex land law matters.",
+    slug: "conveyancing-real-estate",
+    title: "Conveyancing & Real Estate Law",
+    description: "Specialized services in land registration, property transitions, and complex land law matters.",
     icon: "building",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80",
     fullDescription: "With over 30 years of specialized experience, we navigate the intricacies of the Land Act and Sectional Properties Act. Our services include property transfers, long-term leases, subdivisions, and advisory on land tenure systems in Kenya.",
@@ -52,38 +52,38 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     ]
   },
   {
-    slug: "banking-financial-law",
-    title: "Banking & Financial Law",
-    description: "Providing legal support for financial institutions in complex banking transactions.",
-    icon: "briefcase",
-    image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=1600&q=80",
-    fullDescription: "We represent leading financial institutions in perfection of securities, debt recovery, and regulatory compliance. Our expertise ensures that financial transactions are legally sound and protected against unforeseen liabilities.",
-    expertisePoints: [
-      "Perfection of Securities",
-      "Debt Recovery Strategies",
-      "Regulatory Compliance Audits",
-      "Lending & Finance Advisory",
-      "Banking Litigation Support"
-    ]
-  },
-  {
-    slug: "litigation-dispute-resolution",
-    title: "Litigation & Dispute Resolution",
-    description: "Skilled representation in civil litigation and alternative dispute resolution (ADR).",
+    slug: "civil-criminal-litigation",
+    title: "Civil & Criminal Litigation",
+    description: "Aggressive advocacy and representation in all levels of the judicial system.",
     icon: "gavel",
     image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80",
-    fullDescription: "Our litigation team provides vigorous advocacy in Kenyan courts. We prioritize Alternative Dispute Resolution (ADR) including mediation and arbitration to achieve cost-effective and timely results for our clients.",
+    fullDescription: "Our litigation team provides vigorous advocacy in Kenyan courts, handling both civil and criminal matters with precision. We are committed to protecting our clients' rights and interests through every stage of the judicial process.",
     expertisePoints: [
-      "Civil & Commercial Litigation",
-      "Arbitration & Mediation (ADR)",
+      "General Civil Litigation",
+      "Criminal Defense Advocacy",
       "Constitutional & Judicial Review",
-      "Employment & Labor Disputes",
-      "Insurance Claim Defence"
+      "Public Procurement Disputes",
+      "Administrative Law Matters"
     ]
   },
   {
-    slug: "family-law-succession",
-    title: "Family Law & Succession",
+    slug: "employment-labour-law",
+    title: "Employment & Labour Relations Law",
+    description: "Navigating complex workplace regulations and labour disputes with expert precision.",
+    icon: "users",
+    image: "https://images.unsplash.com/photo-1521791136066-69a63e920939?w=1600&q=80",
+    fullDescription: "We provide comprehensive legal support in employment matters, ensuring compliance with the Employment Act and Labour Relations Act. From contract drafting to dispute resolution at the ELRC, we protect the interests of both employers and employees.",
+    expertisePoints: [
+      "Labour Dispute Resolution",
+      "Employment Contract Drafting",
+      "HR Policy & Compliance Audits",
+      "Workplace Misconduct & Disciplinaries",
+      "Collective Bargaining Agreements"
+    ]
+  },
+  {
+    slug: "family-law-probate",
+    title: "Family Law, Probate & Administration",
     description: "Compassionate legal support for family matters, probate, and estate administration.",
     icon: "users",
     image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1600&q=80",
@@ -94,6 +94,36 @@ export const PRACTICE_AREAS: PracticeArea[] = [
       "Divorce & Matrimonial Property",
       "Adoption & Child Custody",
       "Estate Management"
+    ]
+  },
+  {
+    slug: "dispute-resolution-adr",
+    title: "Dispute Resolution (ADR)",
+    description: "Alternative strategies for settling disputes through arbitration and mediation.",
+    icon: "shield",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1600&q=80",
+    fullDescription: "We prioritize cost-effective and timely conflict resolution. Our team is skilled in Alternative Dispute Resolution (ADR), including mediation and arbitration, providing a path to settlement without the need for prolonged courtroom litigation.",
+    expertisePoints: [
+      "Commercial Arbitration",
+      "Civil Mediation",
+      "Negotiated Settlements",
+      "Conflict Management Consultancy",
+      "Tribunal Representation"
+    ]
+  },
+  {
+    slug: "insurance-law",
+    title: "Insurance Law",
+    description: "Expert advice and litigation support for insurance claims and liability matters.",
+    icon: "shield",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80",
+    fullDescription: "CNK Law provides specialized legal services to the insurance sector, handling claims defense, policy interpretation, and regulatory compliance. We protect insurers and the insured through robust legal strategies and meticulous analysis.",
+    expertisePoints: [
+      "Insurance Claim Defence",
+      "Policy Advisory & Drafting",
+      "Subrogation Claims",
+      "Liability Assessment",
+      "Insurance Regulatory Compliance"
     ]
   },
   {
@@ -112,33 +142,18 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     ]
   },
   {
-    slug: "legal-training-consultancy",
-    title: "Legal Training & Consultancy",
-    description: "Professional legal training and strategic consultancy for corporate and individual clients.",
+    slug: "banking-finance-law",
+    title: "Banking & Finance Law",
+    description: "Providing legal support for financial institutions in complex banking transactions.",
     icon: "briefcase",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb28f74b0cd?w=1600&q=80",
-    fullDescription: "We provide specialized legal training and consultancy services designed to empower organizations with legal knowledge and strategic insights. Our programs cover corporate governance, compliance, and emerging legal trends.",
+    image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=1600&q=80",
+    fullDescription: "We represent leading financial institutions in perfection of securities, debt recovery, and regulatory compliance. Our expertise ensures that financial transactions are legally sound and protected against unforeseen liabilities.",
     expertisePoints: [
-      "Corporate Governance Training",
-      "Regulatory Compliance Workshops",
-      "Legal Risk Management",
-      "Strategic Legal Consultancy",
-      "Customized Legal Seminars"
-    ]
-  },
-  {
-    slug: "landlord-tenant-law",
-    title: "Landlords & Tenants Law",
-    description: "Expert navigation of leases, rent tribunal matters, and property management disputes.",
-    icon: "building",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80",
-    fullDescription: "We represent both landlords and tenants in complex lease negotiations and disputes. Our expertise extends to the Rent Tribunal, ensuring that our clients' property rights are protected and their obligations are clearly defined.",
-    expertisePoints: [
-      "Commercial & Residential Leases",
-      "Rent Tribunal Representation",
-      "Eviction Proceedings",
-      "Property Management Advisory",
-      "Lease Agreement Drafting"
+      "Perfection of Securities",
+      "Debt Recovery Strategies",
+      "Regulatory Compliance Audits",
+      "Lending & Finance Advisory",
+      "Banking Litigation Support"
     ]
   }
 ];
@@ -148,12 +163,13 @@ export const TEAM: TeamMember[] = [
     id: "1",
     slug: "catherine-n-karanja",
     name: "Catherine Nyambura Karanja (Mrs)",
-    title: "Senior Partner",
+    title: "Managing Partner",
     category: "Partner",
-    bio: "Mrs. Catherine Nyambura Karanja is an eminent legal practitioner with over 25 years of distinguished experience in Kenyan Jurisprudence. As the Senior Partner, she specializes in Conveyancing, Land Law, and Corporate Governance. Her unique expertise is backed by a former tenure as a Senior Registrar of Titles at the Ministry of Lands (16 years), and she holds an International Diploma in Land Information Systems from Sweden. She is an expert in the 2012 Land Acts, Stamp Duty procedures, and comprehensive land department management.",
+    bio: "Mrs. Catherine Nyambura Karanja is an eminent legal practitioner with over 30 years of distinguished experience in Kenyan Jurisprudence. As the Managing Partner, she specializes in Conveyancing, Land Law, and Corporate Governance. Her unique expertise is backed by a former tenure as a Senior Registrar of Titles at the Ministry of Lands (16 years), and she holds an International Diploma in Land Information Systems from Sweden. She is an expert in the 2012 Land Acts, Stamp Duty procedures, and comprehensive land department management. Catherine has been in private legal practice for over 10 years and formed the firm of C.N. Karanja & Associates Advocates in 2016.",
     image: "/Staff/optimized/Catherine2.jpg",
     objectPosition: "object-center",
     specializations: ["Conveyancing", "Land Law", "Company Law", "Property Law"],
+    experience: "30+ Years",
   },
   {
     id: "2",
@@ -161,47 +177,49 @@ export const TEAM: TeamMember[] = [
     name: "Marvin Mucheru Mwirikia",
     title: "Associate",
     category: "Associate",
-    bio: "Mr. Marvin Mucheru Mwirikia is a dynamic legal professional committed to excellence in advocacy. With over 1 year of post-admission experience, he focuses on Conveyance, Civil Litigation, Probate & Succession, Debt Collection, Commercial, Intellectual Property, and Employment Law. Marvin holds an LLB (Hons) from Mount Kenya University and a Diploma in Advocacy from the Kenya School of Law.",
+    bio: "Mr. Marvin Mucheru Mwirikia is a dynamic legal professional committed to excellence in advocacy. With over 5 years of post-admission experience, he focuses on Conveyance, Civil Litigation, Probate & Succession Law, Debt Collection, Commercial Law, Company Law, Intellectual Property Law, and Employment Labour Law. Marvin holds an LLB (Hons) from Mount Kenya University and a Diploma in Advocacy from the Kenya School of Law. He is an Active Member of the Law Society of Kenya (LSK).",
     image: "/Staff/optimized/Marvin.jpg",
     objectPosition: "object-top",
     specializations: ["Conveyance", "Civil Litigation", "Probate & Succession", "Commercial Law"],
-    experience: "1+ Years",
+    experience: "5 Years",
   },
   {
     id: "3",
-    name: "Mary Veronica Wanjiku",
-    title: "Legal Secretary & Admin Manager",
-    category: "Support Staff",
-    bio: "Mary Veronica Wanjiku serves as the Legal Secretary and Admin Manager at CNK Law. Bringing invaluable experience from her previous tenure at the Ministry of Lands, she oversees the firm's administrative operations, ensuring seamless coordination between our legal teams and administrative departments.",
-    shortBio: "Admin Manager and Legal Secretary with specialized experience from the Ministry of Lands, ensuring operational excellence and administrative precision.",
+    slug: "austin-muchoti-anyenzi",
+    name: "Austin Muchoti Anyenzi",
+    title: "Associate",
+    category: "Associate",
+    bio: "Mr. Austin Muchoti Anyenzi is a dedicated Associate with over 5 years of experience in Legal Practice. He specializes in Conveyance, Civil Litigation, Probate & Succession Law, Debt Collection, Commercial Law, Company Law, Intellectual Property Law, and Employment Labour Law. Austin holds an LLB (Hons) from Moi University and a Diploma in Advocacy from the Kenya School of Law. He is an Active Member of the Law Society of Kenya (LSK).",
+    specializations: ["Conveyancing", "Civil Litigation", "Commercial Law", "IP Law"],
+    experience: "5 Years",
   },
   {
     id: "4",
     name: "Ann Wanjiku",
-    title: "Legal Secretary & Litigation Assistant",
+    title: "Legal Secretary & Admin Assistant",
     category: "Support Staff",
-    bio: "Ann Wanjiku is a highly skilled administrative professional specializing in Litigation and Commercial Law support. With extensive experience across leading civil engineering and legal firms, Ann provides critical support in case management and judicial filings. She is a trained legal secretary with a focus on administrative efficiency and client service.",
-    shortBio: "Specializing in litigation support and case management, Ann brings extensive experience from leading legal and engineering firms to ensure precise judicial filings and seamless administrative coordination.",
+    bio: "Ann Wanjiku serves as the Legal Secretary and Administrative Assistant in the Litigation and Commercial department. She is a trained secretary with extensive experience in leading civil engineering and legal firms, ensuring administrative efficiency and professional case management.",
+    shortBio: "Ensuring administrative precision and litigation support with a focus on case management and judicial filings.",
     image: "/Staff/optimized/AnnWanjiku.jpg",
     objectPosition: "object-top",
   },
   {
     id: "5",
     name: "Lawrence Mungai",
-    title: "Senior Accountant & Auditor",
+    title: "Firm Accountant",
     category: "Administration",
-    bio: "Lawrence Mungai oversees the firm's financial integrity and audit compliance. With a background in corporate accounting at Bata Shoe Company and specialized experience in legal auditing and conveyancing finance, Lawrence ensures the firm's financial operations are precise and transparent.",
-    shortBio: "Overseeing our financial integrity and audit compliance, Lawrence combines corporate accounting expertise with specialized knowledge in legal finance and conveyancing transactions.",
+    bio: "Lawrence Mungai is the Firm's Accountant with wide experience in accounting and auditing. His background includes tenure at Bata Shoe Company and specialized experience as an Accountant/Conveyancing Clerk, ensuring financial integrity and procedural precision in all legal transactions.",
+    shortBio: "Managing the firm's financial integrity with specialized experience in accounting, auditing, and conveyancing finance.",
     image: "/Staff/optimized/Mungai.jpg",
     objectPosition: "object-top",
   },
   {
     id: "6",
     name: "Sarah Muigai",
-    title: "Office Assistant",
+    title: "Conveyancing Clerk & Office Assistant",
     category: "Support Staff",
-    bio: "Sarah Muigai provides essential operational support, ensuring the firm remains responsive and organized. Her previous experience in hospitality and legal office management contributes to the professional environment our clients expect.",
-    shortBio: "Ensuring our firm runs with clockwork precision, Sarah contributes hospitality-grade client service and strong organizational skills to our daily operations.",
+    bio: "Sarah Muigai is a Conveyancing Clerk and Office Assistant. She provides critical support in property transactions and legal office management, ensuring responsive client service and organizational excellence.",
+    shortBio: "Providing essential support in conveyancing transactions and ensuring seamless office operations with a focus on client service.",
     image: "/Staff/optimized/Sarah2.jpg",
     objectPosition: "object-top",
   }
