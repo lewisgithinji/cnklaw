@@ -184,16 +184,6 @@ export const TEAM: TeamMember[] = [
     experience: "5 Years",
   },
   {
-    id: "3",
-    slug: "austin-muchoti-anyenzi",
-    name: "Austin Muchoti Anyenzi",
-    title: "Associate",
-    category: "Associate",
-    bio: "Mr. Austin Muchoti Anyenzi is a dedicated Associate with over 5 years of experience in Legal Practice. He specializes in Conveyance, Civil Litigation, Probate & Succession Law, Debt Collection, Commercial Law, Company Law, Intellectual Property Law, and Employment Labour Law. Austin holds an LLB (Hons) from Moi University and a Diploma in Advocacy from the Kenya School of Law. He is an Active Member of the Law Society of Kenya (LSK).",
-    specializations: ["Conveyancing", "Civil Litigation", "Commercial Law", "IP Law"],
-    experience: "5 Years",
-  },
-  {
     id: "4",
     name: "Ann Wanjiku",
     title: "Legal Secretary & Admin Assistant",

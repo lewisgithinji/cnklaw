@@ -137,21 +137,32 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto relative">
             <div className="absolute -left-20 top-0 text-[200px] font-serif opacity-[0.03] select-none text-primary">STRATEGY</div>
             <h2 className="text-4xl font-serif font-bold mb-12 text-gray-900 relative">Our Strategic Theme</h2>
-            <p className="text-xl mb-12 font-medium text-gray-700 leading-relaxed border-l-4 border-secondary pl-8">
-              At {FIRM_INFO.name}, we are committed to building a reputable law firm that leads through customer-friendly and high-quality legal services.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {[
-                "Accessible, dependable and timely service delivery.",
-                "Unwavering fairness and respect in all professional duties.",
-                "Total clarity and transparency in every legal operation.",
-                "Responsiveness to client needs and commitment to service improvements.",
+                "Accessible",
+                "Dependable",
+                "Timely",
+                "Fair",
+                "Respectful",
+                "Clear",
+                "Transparent",
+                "Responsive",
+              ].map((pillar, idx) => (
+                <div key={idx} className="bg-gray-50 p-4 border border-gray-100 flex items-center justify-center text-center group hover:bg-primary transition-all duration-300">
+                  <p className="text-gray-900 font-bold uppercase tracking-widest text-[10px] group-hover:text-white">{pillar}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {[
+                "Commitment to high-quality legal innovation and service delivery.",
                 "Continuous development and retention of a professional workforce.",
+                "Implementation of performance-based appraisal systems.",
                 "Active Client Services Supervision (CSS) for quality assurance.",
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4 items-start">
                   <div className="w-6 h-6 rounded-none bg-primary flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">0{idx + 1}</div>
-                  <p className="text-gray-600">{item}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
                 </div>
               ))}
             </div>
