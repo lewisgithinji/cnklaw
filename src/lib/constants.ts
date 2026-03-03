@@ -71,7 +71,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     title: "Employment & Labour Relations Law",
     description: "Navigating complex workplace regulations and labour disputes with expert precision.",
     icon: "users",
-    image: "https://images.unsplash.com/photo-1521791136066-69a63e920939?w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80",
     fullDescription: "We provide comprehensive legal support in employment matters, ensuring compliance with the Employment Act and Labour Relations Act. From contract drafting to dispute resolution at the ELRC, we protect the interests of both employers and employees.",
     expertisePoints: [
       "Labour Dispute Resolution",
@@ -101,7 +101,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     title: "Dispute Resolution (ADR)",
     description: "Alternative strategies for settling disputes through arbitration and mediation.",
     icon: "shield",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1600&q=80",
     fullDescription: "We prioritize cost-effective and timely conflict resolution. Our team is skilled in Alternative Dispute Resolution (ADR), including mediation and arbitration, providing a path to settlement without the need for prolonged courtroom litigation.",
     expertisePoints: [
       "Commercial Arbitration",
@@ -131,7 +131,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     title: "Intellectual Property Law",
     description: "Protecting your innovation through trademark, patent, and copyright registration.",
     icon: "shield",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80",
     fullDescription: "In the digital age, protecting your ideas is paramount. We assist clients in registering and defending trademarks, copyrights, and patents, ensuring their intellectual assets are legally protected and commercially leveraged.",
     expertisePoints: [
       "Trademark & Patent Registration",
